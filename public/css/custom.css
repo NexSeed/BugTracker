@@ -1,0 +1,293 @@
+[class *= "jq_comment_box"] {
+/*
+	height: 0;
+	transition: all 0.8s;
+*/
+	display: none;
+}
+/*
+[class *= "jq_comment_box"].on {
+	height: 110px;
+}
+*/
+[class *= "_image_preview"] {
+	display: block;
+	max-width: calc(100% / 3);
+
+}
+.camera_btn_wrapper {
+	position: relative;
+	width: 38px;
+	height: 30px;
+	overflow: hidden;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+.camera_btn_wrapper .shaded,
+.camera_btn_wrapper .btn_file {
+	position: absolute;
+	cursor: pointer;
+}
+.camera_btn_wrapper .shaded {
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	transform: translate(-50%, -50%);
+}
+.camera_btn_wrapper .btn_file {
+	top: 0;
+	left: 0;
+	width: 38px;
+	height: 30px;
+	z-index: 3;
+	opacity: 0;
+}
+
+.feed-comment {
+	padding-left: 2em;
+
+}
+.article-image {
+	display: flex;
+	align-items: center;
+}
+.article-image img {
+	display: block;
+	max-width: calc(100% / 3);
+	min-height: 100px;
+	margin-top: 15px;
+}
+.submit-button {
+	display: block;
+}
+
+.comment_image a {
+	display: block;
+	max-width: calc(100% / 3);
+	min-height: 100px;
+	margin-top: 15px;
+}
+.edit_image {
+	display: inline-block;
+	max-width: calc(100% / 3);
+	border: 1px solid #eee;
+	margin-bottom: 20px;
+	border-radius: 3px;
+}
+.edit_btn {
+	display: flex;
+	align-items: center;
+}
+.edit_btn_upload,
+.edit_btn_delete {
+	position: relative;
+	width: 140px;
+	height: 34px;
+	line-height: 0;
+	overflow: hidden;
+	cursor: default;
+}
+.edit_btn_upload:hover,
+.edit_btn_delete:hover {
+	opacity: 0.8;
+}
+.edit_btn_upload span,
+.edit_btn_upload .image_button {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.edit_btn_upload span,
+.edit_btn_delete {
+	line-height: 34px;
+	text-align: center;
+	padding: 0 10px;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+.edit_btn_upload span,
+.edit_btn_upload .image_button {
+	width: 100%;
+	height: 100%;	
+}
+.edit_btn_delete {
+	width: 140px;
+	height: 100%;	
+}
+.edit_btn_upload .image_button {
+	opacity: 0;
+}
+.edit_btn_upload + .edit_btn_delete {
+	margin-left: 14px;
+}
+
+.list-table tbody tr:hover td {
+	background: #E8F6E4;
+	cursor: pointer
+}
+
+.top-count {
+	display: inline-block;
+	background: #78ba00;
+  box-shadow: 0 0 2px rgba(0,0,0,0.4) inset;
+  border-radius: 3px;
+  padding: 5px 8px 6px;
+	font-weight: bold;
+	color: #ffffff;
+}
+.btn-box b.top_btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.btn-box b.top_btn label {
+	margin: 0 0 0 5px;
+	line-height: 10px;
+}
+/* Pagination */
+.pagination {
+	display: flex;  /* 横並び*/
+	justify-content: center;  /* liの水平位置調整用　中央寄せ　か均等割か選べる*/
+	list-style: none;					/* liはデフォルトで点点つく。点点消す。大抵は、CSSの頭で全体的に ul,ol に対してかけちゃうことも多い*/
+}
+.pagination li + li {  /* 兄弟要素 liの隣にliがあるときに ２つ目の要素にかかる*/
+	margin-left: 10px;
+}
+.pagination a,
+.pagination span {
+	display: inline-block;  /* inlineは高さの指定は効かない。 inline-blockは改行されず高さも指定できる*/
+	width: 28px;
+	height: 28px;
+	line-height: 28px;			/*行間　heightとline-heightを同じ数にすると、文字がいい感じにセンターに来る*/
+	text-align: center;
+	border: 1px solid #0088cc;
+	border-radius: 2px;
+}
+.pagination .active span {
+	background: #0088cc;
+	color: #fff;
+}
+.pagination .disabled span {
+	border: 1px solid #ddd;
+	color: #ddd;
+}
+.class-a.class-b {}  /*スペースないとき　classのAND .class-aも.class-b もある要素に対して定義*/
+.class-a .class-b {} /* スペースあるとき　classの入れ子  .class-aの中の class-bに対して定義*/
+
+.btn-box.top-erp {
+	/*background: #E1FFC9;*/
+
+}
+
+.btn-box.top-hs {
+	/*background: #C9FBFF;*/
+
+}
+
+
+
+
+
+/* ▼ タブメニュー全体の設定 */
+div.tabbox {
+	/*margin: 15px 0 0 0;*/
+	padding: 0 30px;
+	/*width:600px;*/
+	/*height:200px;*/
+	display: block;
+}
+/* ▼ タブ部分のマージンとパディング領域を設定 */
+p.tabs {
+	margin: 0px;
+  padding: 0px;
+}
+p.tabs a {
+   /* ▼ リンクをタブのように見せる */
+   display: block; width: 100px; float: left;
+   margin: 0px 3px 0px 0px;
+   padding: 3px;
+   text-align: center;
+   font-size:12px;
+}
+/* ▼ タブごとの配色設定 */
+p.tabs a.tabs-tab {
+	text-decoration:none;
+	background-color:#fafafa;
+	border-right:1px
+	solid #dcdcdc;
+	border-left:1px
+	solid #dcdcdc;
+	border-top: 3px solid rgba(170, 0, 0, 0.85);
+	color: #666;
+	font-weight:600;
+}
+
+
+p.tabs a.tab1 {
+	text-decoration:none;
+	background-color:#fafafa;
+	border-right:1px
+	solid #dcdcdc;
+	border-left:1px
+	solid #dcdcdc;
+	border-top: 3px solid rgba(181, 83, 81, 0.85);
+	color: #666;
+	font-weight:600;
+}
+p.tabs a.taberp {
+	text-decoration:none;
+	background-color:#fafafa;
+	border-right:1px solid #dcdcdc;
+	border-left:1px solid #dcdcdc;
+	border-top: 3px solid rgba(98, 194, 98, 0.85);
+	color: #666; font-weight:600;
+}
+p.tabs a.tabhs {
+	text-decoration:none;
+	background-color:#fafafa;
+	border-right:1px solid #dcdcdc;
+	border-left:1px solid #dcdcdc;
+	border-top: 3px solid rgba(20, 155, 223, 0.85);
+	color: #666; font-weight:600;
+}
+p.tabs a:hover {
+	opacity:0.7;
+	filter:alpha(opacity=70);
+}
+
+/* ▼ 各ボックスの配色設定 */
+div#tab1 {
+	border: 2px solid #DDD;
+	background-color: #fbfbfb;
+}
+div#tab2 {
+	border: 2px solid #DDD;
+	ackground-color: #fbfbfb;
+}
+div#tab3 {
+	border: 2px solid #DDD;
+	background-color: #fbfbfb;
+}
+
+
+.list_state {
+	display: flex;  /* 横並び*/
+	justify-content: left;  /* liの水平位置調整用　中央寄せ　か均等割か選べる*/
+	list-style: none;					/* liはデフォルトで点点つく。点点消す。大抵は、CSSの頭で全体的に ul,ol に対してかけちゃうことも多い*/
+}
+
+.list_state li + li {  /* 兄弟要素 liの隣にliがあるときに ２つ目の要素にかかる*/
+	margin-left: 10px;
+}
+
+.article_list {
+    /*border-top: 1px solid #e5e5e5;*/
+    margin: -10px -5px -15px;
+}
+/*
+.edit-article-image {
+	display: flex;
+	align-items: center;
+}
+*/
