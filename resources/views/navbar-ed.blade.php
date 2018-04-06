@@ -28,14 +28,14 @@
                 </a>
 
                 <ul class="dropdown-menu">
-                  <li><a href="/auth/login">Login</a></li>
-                  <li><a href="/auth/register">Register</a></li>
+                  <li><a href={{url("auth/login")}}>Login</a></li>
+                  <li><a href={{url("auth/register")}}>Register</a></li>
                 </ul>
               @else
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}<b class="caret"></b></a>
 
                 <ul class="dropdown-menu">
-                  <li><a href="/auth/logout">Logout</a></li>
+                  <li><a href={{url("auth/logout")}}>Logout</a></li>
                 </ul>
               @endif
             </li>

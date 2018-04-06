@@ -14,7 +14,7 @@
                   </div>
                 @endif
 <div class="module span4 offset2">
-	<form class="form-vertical" role="form" method="POST" action="/auth/register">
+	<form class="form-vertical" role="form" method="POST" action={{url("auth/register")}}>
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 

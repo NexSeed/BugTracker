@@ -11,7 +11,7 @@
 
 @if (Auth::check())
 	@if (Auth::id() == $article->user_id || App\User::findOrfail(Auth::id())->user_type == 1)
-		<form method="POST" action="/articles/{{$article->id }}" accept-charset="UTF-8">
+		<form method="POST" action={{url("articles/".$article->id) }} accept-charset="UTF-8">
 	  	{!! link_to(action('ArticlesController@edit', ['id' => $article->id]), '編集', ['class' => 'btn']) !!}
 			<input name="_method" type="hidden" value="DELETE">
 			{!! csrf_field() !!}

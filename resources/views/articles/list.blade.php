@@ -10,10 +10,10 @@
     <div class="module">
         <div class="module-head">
             <div class="list_state">
-                <li><a href="/articleslist/Status/1/System/{{ $system }}">Not yet({{ $statusCounts[0] }})</a></li>
-                <li><a href="/articleslist/Status/2/System/{{ $system }}">Doing({{ $statusCounts[1] }})</a></li>
-                <li><a href="/articleslist/Status/3/System/{{ $system }}">Done({{ $statusCounts[2] }})</a></li>
-                <li><a href="/articleslist/Status/4/System/{{ $system }}">Pending({{ $statusCounts[3] }})</a></li>
+                <li><a href={{url("articleslist/Status/1/System/". $system)}}>Not yet({{ $statusCounts[0] }})</a></li>
+                <li><a href={{url("articleslist/Status/2/System/". $system)}}>Doing({{ $statusCounts[1] }})</a></li>
+                <li><a href={{url("articleslist/Status/3/System/". $system)}}>Done({{ $statusCounts[2] }})</a></li>
+                <li><a href={{url("articleslist/Status/4/System/". $system)}}>Pending({{ $statusCounts[3] }})</a></li>
             </div>
         </div>
         <div class="module-body table list-table">

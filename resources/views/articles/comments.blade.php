@@ -25,7 +25,7 @@
 @if (Auth::check())
 <div class="stream-composer media">
   <div class="media-body">
-    <form name="jq_comment" action="/articles/comment/{{ $article->id }}/add" method="post" enctype="multipart/form-data">
+    <form name="jq_comment" action={{url("articles/comment/". $article->id ."/add")}} method="post" enctype="multipart/form-data">
       {!! csrf_field() !!}
 
       <div class="row-fluid">

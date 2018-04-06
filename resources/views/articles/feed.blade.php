@@ -16,15 +16,7 @@
 
 		<div class="module-body">
 			<div class="article_list">
-{{--         @if (Auth::check())
-        <div class="btn-box-row row-fluid">
-                <a href="/articles/create" class="btn-box small span2">
-                    <i class="icon-edit"></i>
-                      <b>New Report</b>
-                </a>
-        </div>
-        @endif
- --}}
+
 				@foreach($articles as $article)
 				<div class="media stream">
 

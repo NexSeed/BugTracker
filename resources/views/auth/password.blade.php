@@ -26,7 +26,7 @@
             </div>
           @endif
 
-          <form class="form-vertical" role="form" method="POST" action="/password/email">
+          <form class="form-vertical" role="form" method="POST" action={{url("/password/email")}}>
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 			<div class="module span4 offset2">

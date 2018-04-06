@@ -7,11 +7,11 @@
 
     <div class="btn-controls">
         <div class="btn-box-row row-fluid">
-            <a href="/articleslist/Status/all/System/ERP" class="btn-box big span4 top-erp"><i class=" icon-book"></i><b class="top_btn">ERP<label class="top-count">{{ $doneERP }}</label></b>
+            <a href={{url("articleslist/Status/all/System/ERP")}} class="btn-box big span4 top-erp"><i class=" icon-book"></i><b class="top_btn">ERP<label class="top-count">{{ $doneERP }}</label></b>
 
                 <p class="text-muted">
                 </p>
-            </a><a href="articleslist/Status/all/System/HackersStory" class="btn-box big span4 top-hs"><i class="icon-user"></i><b class="top_btn">Hacker's Story<label class="top-count">{{ $doneHS }}</label></b>
+            </a><a href={{url("articleslist/Status/all/System/HackersStory")}} class="btn-box big span4 top-hs"><i class="icon-user"></i><b class="top_btn">Hacker's Story<label class="top-count">{{ $doneHS }}</label></b>
                 <p class="text-muted">
                     </p>
             </a>
@@ -46,7 +46,7 @@
         @if (Auth::check())
         <hr>
         <div class="btn-box-row row-fluid">
-            <a href="/articles/create" class="btn-box small span2">
+            <a href={{url("articles/create")}} class="btn-box small span2">
                 <i class="icon-edit"></i>
                   <b>New Report</b>
             </a>

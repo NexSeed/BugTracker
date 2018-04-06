@@ -6,7 +6,7 @@
 
 
 
-		<form method="POST" action="/articles" enctype="multipart/form-data">
+		<form method="POST" action={{url("articles")}} enctype="multipart/form-data">
 
 	        @include('articles.form', ['submitButtonTitle' => 'Add Article'])
 		</form>
