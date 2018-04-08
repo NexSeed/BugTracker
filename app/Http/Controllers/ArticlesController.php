@@ -158,7 +158,7 @@ class ArticlesController extends Controller
 
         $article->update($input);
 
-        $this->uploadImages($article,$input,false);
+        $this->uploadImages($article,$input);
 
 
         \Flash::success('記事を更新しました。');
@@ -203,7 +203,7 @@ class ArticlesController extends Controller
                 $article->deleteImage2Path();
                 break;
             case 3:
-                $path = $article->getImage1Path();
+                $path = $article->getImage3Path();
                 if(isset($path)) File::delete($path);
                 $article->deleteImage3Path();
                 break;
@@ -259,18 +259,30 @@ class ArticlesController extends Controller
 
     // imageをアップロードするための関数
     // 初めてだったら、フォルダを作成
-    function uploadImages($article,$input,$isNew = true) {
+    function uploadImages($article,$input) {
 
         for($i = 1; $i <= 3; $i++ ) {
             switch ($i) {
-                case '1':
+                case 1:
                     $imageNum = 'image1';
+                    if($input['updatedImage1']==1) {
+                        $this->deleteImage($article,1);
+                        // $article->image1 = "";
+                    }
                     break;
-                case '2':
+                case 2:
                     $imageNum = 'image2';
+                    if($input['updatedImage2']==1) {
+                        $this->deleteImage($article,2);
+                        // $article->image2 = "";
+                    }
                     break;
-                case '3':
+                case 3:
                     $imageNum = 'image3';
+                    if($input['updatedImage3']==1) {
+                        $this->deleteImage($article,3);
+                        // $article->image3 = "";
+                    }
                     break;
                 default:
                     break;
@@ -286,27 +298,30 @@ class ArticlesController extends Controller
                 $image = Image::make($input[$imageNum]->getRealPath());
                   //画像を保存する
 
-                if (!isset($result) && $isNew) {
-                  $result = \File::makeDirectory(public_path().'/articleimages/'.$article->id, 0775, true);
+                $directory = public_path().'/articleimages/'.$article->id;
+                // if (!isset($result) && $isNew) {
+                if (! \File::isDirectory($directory)) {
+                  $result = \File::makeDirectory($directory, 0775, true);
                 }
-                $image->save(public_path().'/articleimages/'.$article->id.'/'.$fileName);
+                $image->save($directory.'/'.$fileName);
 
                 switch ($i) {
-                    case '1':
+                    case 1:
                         $article->image1 = $fileName;
                         break;
-                    case '2':
+                    case 2:
                         $article->image2 = $fileName;
                         break;
-                    case '3':
+                    case 3:
                         $article->image3 = $fileName;
                         break;
                     default:
                         break;
                 }
             }
-            $article->save();
         }
+
+        $article->save();
     }
 
 

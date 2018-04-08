@@ -13,4 +13,8 @@
 
 @endsection
 
+@section('additionaljs')
 
+  @include('articles.form_js')
+
+@endsection
