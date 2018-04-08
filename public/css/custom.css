@@ -67,13 +67,6 @@
 	min-height: 100px;
 	margin-top: 15px;
 }
-.edit_image {
-	display: inline-block;
-	max-width: calc(100% / 3);
-	border: 1px solid #eee;
-	margin-bottom: 20px;
-	border-radius: 3px;
-}
 .edit_btn {
 	display: flex;
 	align-items: center;
@@ -133,7 +126,6 @@
   box-shadow: 0 0 2px rgba(0,0,0,0.4) inset;
   border-radius: 3px;
   padding: 5px 8px 6px;
-	font-weight: bold;
 	color: #ffffff;
 }
 .btn-box b.top_btn {

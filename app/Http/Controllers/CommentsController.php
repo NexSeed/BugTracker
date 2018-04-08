@@ -68,20 +68,24 @@ class CommentsController extends Controller
     function uploadImages($comment,$input) {
 
         $imageNum = 'image';
-
         if(isset($input[$imageNum])){
 
             //getClientOriginalName():アップロードしたファイルのオリジナル名を取得します
             //コメントidを頭につけておく
             $fileName = $comment->id.'_'.$input[$imageNum]->getClientOriginalName();
 
+            $directory = public_path().'/articleimages/'.$comment->article_id;
+            // if (!isset($result) && $isNew) {
+            if (! \File::isDirectory($directory)) {
+              $result = \File::makeDirectory($directory, 0775, true);
+            }
 
             //getRealPath():アップロードしたファイルのパスを取得します。
             $image = Image::make($input[$imageNum]->getRealPath());
               //画像を保存する
 
 
-            $image->save(public_path().'/articleimages/'.$comment->article_id.'/'.$fileName);
+            $image->save($directory.'/'.$fileName);
 
             $comment->image = $fileName;
         }

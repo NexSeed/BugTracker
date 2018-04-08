@@ -7,12 +7,12 @@
 
 @include('errors.form_errors')
 
-  <h3>Detail/Edit</h3>
+  <h3>Detail</h3>
 
 @if (Auth::check())
 	@if (Auth::id() == $article->user_id || App\User::findOrfail(Auth::id())->user_type == 1)
 		<form method="POST" action={{url("articles/".$article->id) }} accept-charset="UTF-8">
-	  	{!! link_to(action('ArticlesController@edit', ['id' => $article->id]), '編集', ['class' => 'btn']) !!}
+	  	{!! link_to(action('ArticlesController@edit', ['id' => $article->id]), 'Edit', ['class' => 'btn']) !!}
 			<input name="_method" type="hidden" value="DELETE">
 			{!! csrf_field() !!}
 			<input class="btn" type="submit" value="Delete" onclick="return confirm('本当に削除しますか？');">
@@ -52,7 +52,7 @@
 				return function(e){
 					$preview.attr('src', e.target.result);
 					$(this).val($file['name']);
-	
+
 					$fileSize01 = $file['size'];
 					$fileType01 = $file['type'];
 				};
@@ -75,25 +75,26 @@
 
 		if($id == 'js-button-like'){
 			likeAjax(true, $currentNum );
-			
+
 		}else if($id == 'js-button-unlike'){
 			likeAjax(false, $currentNum );
-			
+
+
 		}
-		
-			
+
 	});
-	
+
 	function likeAjax($isLike,$currentNum) {
-		
+
 		if ($isLike == true) {
-			$url = '/articles/'+ $currentNum + '/like';
+			$url = $currentNum + '/like';
 
 		}
 		else {
-			$url = '/articles/'+ $currentNum + '/unlike';
+			$url = $currentNum + '/unlike';
 		}
-		
+
+
 		$.ajax({
 				headers: {
 	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -102,22 +103,20 @@
 				url : $url,
 				contentType: 'application/json',
 				dataType: 'json'
-				
+
 			})
 			.done((data, textStatus, jqXHR) => {
-			    $text = '<i class="icon-thumbs-up shaded"></i>' + 'Like取り消し ' + data['likes_count'];
-			    console.log($text);
 			    if ($isLike == true) {
 				    console.log($(this).attr('id', 'js-button-unlike'));
-				    
-		    		$('#js-button-like').attr('id', 'js-button-unlike').html('<i class="icon-thumbs-up shaded"></i>' + 'Like取り消し ' + data['likes_count']);
+
+		    		$('#js-button-like').attr('id', 'js-button-unlike').html('<i class="icon-ok shaded"></i>' + 'Me too取り消し ' + data['likes_count']);
 		    		console.log("unlikeにする");
 		    	}
 		    	else {
-		    		$('#js-button-unlike').attr('id', 'js-button-like').html('<i class="icon-thumbs-up shaded"></i>' + 'Like ' + data['likes_count']);
+		    		$('#js-button-unlike').attr('id', 'js-button-like').html('<i class="icon-ok shaded"></i>' + 'Me too ' + data['likes_count']);
 		    		console.log("likeにする");
 		    	}
-	
+
 			})
 			.fail((jqXHR, textStatus, errorThrown) => {
 			    console.log('fail', jqXHR.status);
@@ -125,7 +124,7 @@
 			    confirm('どうする？');
 			});
 
-		
+
 	}
 </script>
 

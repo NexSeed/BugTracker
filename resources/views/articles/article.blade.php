@@ -34,12 +34,12 @@
 							@if (Auth::check())
 							<hr>
 									@if ( $article->i_like_this() <= 0)
-										<button id="js-button-like" class="btn btn-small jscl-button-like" data-like-num="{{ $article->id }}"><i class="icon-thumbs-up shaded"></i>
-											Like {{ $article->likes_count }}
+										<button id="js-button-like" class="btn btn-small jscl-button-like" data-like-num="{{ $article->id }}"><i class="icon-ok shaded"></i>
+											Me too {{ $article->likes_count }}
 										</button>
 									@else
-										<button id="js-button-unlike" class="btn btn-small jscl-button-like" data-like-num="{{ $article->id }}"><i class="icon-thumbs-up"></i>
-											Like取り消す {{ $article->likes_count }}
+										<button id="js-button-unlike" class="btn btn-small jscl-button-like" data-like-num="{{ $article->id }}"><i class="icon-ok shaded"></i>
+											Me too取り消す {{ $article->likes_count }}
 										</button>
 									@endif
 

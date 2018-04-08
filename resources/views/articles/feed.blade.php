@@ -11,9 +11,6 @@
 <div class="module">
 
 
-
-
-
 		<div class="module-body">
 			<div class="article_list">
 
@@ -108,13 +105,14 @@
 	function likeAjax($isLike,$currentNum) {
 
 		if ($isLike == true) {
-			$url = '/articles/'+ $currentNum + '/like';
+			$url = 'articles/'+ $currentNum + '/like';
 
 		}
 		else {
-			$url = '/articles/'+ $currentNum + '/unlike';
+			$url = 'articles/'+ $currentNum + '/unlike';
 		}
 
+		console.log($url);
 		$.ajax({
 				headers: {
 	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -125,15 +123,13 @@
 				dataType: 'json'
 			})
 			.done((data, textStatus, jqXHR) => {
-			    $text = '<i class="icon-thumbs-up shaded"></i>' + 'Like取り消し ' + data['likes_count'];
-			    console.log($text);
 			    if ($isLike == true) {
 
-		    		$('#js-button-like').attr('id', 'js-button-unlike').html('<i class="icon-thumbs-up shaded"></i>' + 'Like取り消し ' + data['likes_count']);
+		    		$('#js-button-like').attr('id', 'js-button-unlike').html('<i class="icon-ok shaded"></i>' + 'Me too取り消し ' + data['likes_count']);
 		    		console.log("unlikeにする");
 		    	}
 		    	else {
-		    		$('#js-button-unlike').attr('id', 'js-button-like').html('<i class="icon-thumbs-up shaded"></i>' + 'Like ' + data['likes_count']);
+		    		$('#js-button-unlike').attr('id', 'js-button-like').html('<i class="icon-ok shaded"></i>' + 'Me too ' + data['likes_count']);
 		    		console.log("likeにする");
 		    	}
 
@@ -141,7 +137,6 @@
 			.fail((jqXHR, textStatus, errorThrown) => {
 			    console.log('fail', jqXHR.status);
 			    alert('できなかった');
-			    confirm('どうする？');
 			});
 
 	}
