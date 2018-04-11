@@ -210,11 +210,10 @@ p.tabs a.tabs-tab {
 	solid #dcdcdc;
 	border-left:1px
 	solid #dcdcdc;
-	border-top: 3px solid rgba(170, 0, 0, 0.85);
+	border-top: 3px solid rgba(248, 164, 146, 0.85);
 	color: #666;
 	font-weight:600;
 }
-
 
 p.tabs a.tab1 {
 	text-decoration:none;
@@ -241,6 +240,14 @@ p.tabs a.tabhs {
 	border-right:1px solid #dcdcdc;
 	border-left:1px solid #dcdcdc;
 	border-top: 3px solid rgba(20, 155, 223, 0.85);
+	color: #666; font-weight:600;
+}
+p.tabs a.tabbt {
+	text-decoration:none;
+	background-color:#fafafa;
+	border-right:1px solid #dcdcdc;
+	border-left:1px solid #dcdcdc;
+	border-top: 3px solid rgba(158, 27, 53, 0.85);
 	color: #666; font-weight:600;
 }
 p.tabs a:hover {

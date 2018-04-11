@@ -21,7 +21,7 @@
           <div class="control-group">
             <div class="controls">
               <span class="span1 control-label">System  *</span>
-						  {!! Form::select('system', ['ERP'=>'ERP','HackersStory'=>'HackersStory'], old('system')) !!}
+						  {!! Form::select('system', ['ERP'=>'ERP','HackersStory'=>'HackersStory','BugnoTra'=>'BugnoTra'], old('system')) !!}
             </div>
           </div>
         	<div class="control-group">
