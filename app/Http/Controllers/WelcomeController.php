@@ -18,11 +18,16 @@ class WelcomeController extends Controller
                         ->where('status_list_id',  3)->count();
         $doneHS = $articles->where('system' , 'HackersStory')
                         ->where('status_list_id',  3)->count();
+        $doneBT = $articles->where('system' , 'BugnoTra')
+                        ->where('status_list_id',  3)->count();
+
         $allERP = $articles->where('system' , 'ERP')
                         ->count();
         $allHS = $articles->where('system' , 'HackersStory')
                         ->count();
-        return view('top',compact('doneERP','doneHS','allERP','allHS'));
+        $allBT = $articles->where('system' , 'BugnoTra')
+                        ->count();
+        return view('top',compact('doneERP','doneHS','doneBT','allERP','allHS','allBT'));
     }
 
 
