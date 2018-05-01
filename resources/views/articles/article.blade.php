@@ -5,10 +5,17 @@
 								<small>{{ $article->created_at }}</small>  status : {{ $article->status() }}
 							</h5>
 					    	<article>
-										system : {{ $article->system }} <br>
-									type : {{ $article->type }} <br>
-								    Urgency :{{ $article->urgency }} <br>
+										System :  {{ $article->system }} <br>
+										Type :  {{ $article->type }} <br>
+								    Urgency :  {{ $article->urgency }} <br>
+		            @if (!(isset($page) && $page == 'show'))
+
 								<h4><a href={{ url('articles', $article->id)}}>{{ $article->title }}</a></h4>
+								@else
+									<br>
+									
+								@endif
+
 						        <div class="stream-text">
 						          {!! nl2br($article->body) !!}
 						        </div>
@@ -39,7 +46,7 @@
 										</button>
 									@else
 										<button id="js-button-unlike" class="btn btn-small jscl-button-like" data-like-num="{{ $article->id }}"><i class="icon-ok shaded"></i>
-											Me too取り消す {{ $article->likes_count }}
+											Me too Cancel {{ $article->likes_count }}
 										</button>
 									@endif
 

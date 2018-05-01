@@ -1,6 +1,8 @@
 @extends('layout')
 
-@section('title',"Articles")
+@section('beforebody_js')
+    @include('articles.tab_js')
+@endsection <!--  beforebody_js -->
 
 @section('content')
 

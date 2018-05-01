@@ -111,7 +111,7 @@ class ArticlesController extends Controller
 
         $this->uploadImages($article,$input);
 
-        \Session::flash('flash_message', '記事を追加しました。');
+        \Session::flash('flash_message', 'Report is added.');
 
         return redirect('articles');
 

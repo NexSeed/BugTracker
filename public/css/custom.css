@@ -205,7 +205,18 @@ p.tabs a {
 /* ▼ タブごとの配色設定 */
 p.tabs a.tabs-tab {
 	text-decoration:none;
-	background-color:#fafafa;
+	background-color:#f0f0f0;
+	border-right:1px
+	solid #dcdcdc;
+	border-left:1px
+	solid #dcdcdc;
+	border-top: 3px solid rgba(248, 164, 146, 0.85);
+	color: #666;
+	font-weight:600;
+}
+p.tabs a.tab-feed {
+	text-decoration:none;
+	background-color:#f0f0f0;
 	border-right:1px
 	solid #dcdcdc;
 	border-left:1px
@@ -215,20 +226,9 @@ p.tabs a.tabs-tab {
 	font-weight:600;
 }
 
-p.tabs a.tab1 {
-	text-decoration:none;
-	background-color:#fafafa;
-	border-right:1px
-	solid #dcdcdc;
-	border-left:1px
-	solid #dcdcdc;
-	border-top: 3px solid rgba(181, 83, 81, 0.85);
-	color: #666;
-	font-weight:600;
-}
 p.tabs a.taberp {
 	text-decoration:none;
-	background-color:#fafafa;
+	background-color:#f0f0f0;
 	border-right:1px solid #dcdcdc;
 	border-left:1px solid #dcdcdc;
 	border-top: 3px solid rgba(98, 194, 98, 0.85);
@@ -236,7 +236,7 @@ p.tabs a.taberp {
 }
 p.tabs a.tabhs {
 	text-decoration:none;
-	background-color:#fafafa;
+	background-color:#f0f0f0;
 	border-right:1px solid #dcdcdc;
 	border-left:1px solid #dcdcdc;
 	border-top: 3px solid rgba(20, 155, 223, 0.85);
@@ -244,7 +244,7 @@ p.tabs a.tabhs {
 }
 p.tabs a.tabbt {
 	text-decoration:none;
-	background-color:#fafafa;
+	background-color:#f0f0f0;
 	border-right:1px solid #dcdcdc;
 	border-left:1px solid #dcdcdc;
 	border-top: 3px solid rgba(158, 27, 53, 0.85);
@@ -253,6 +253,10 @@ p.tabs a.tabbt {
 p.tabs a:hover {
 	opacity:0.7;
 	filter:alpha(opacity=70);
+}
+
+p.tabs a.selected{
+	background-color: #fff;
 }
 
 /* ▼ 各ボックスの配色設定 */
@@ -290,3 +294,9 @@ div#tab3 {
 	align-items: center;
 }
 */
+.module{
+	border : none;
+}
+.module-head {
+	background-color: #fff;
+}

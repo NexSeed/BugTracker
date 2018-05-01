@@ -102,6 +102,11 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'title' => 'Summary',
+        'type'  => 'Type',
+        'body'  => 'Detail',
+        'urgency'  => 'Urgency',
+],
 
 ];

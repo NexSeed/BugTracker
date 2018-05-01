@@ -6,18 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>
-    @yield('title')
-  </title>
 
-
-  <title>Edmin</title>
+  <title>BugnoTra</title>
+  <link rel="shortcut icon" href="{{ asset('/images/icons/tora.png') }}">
   <link type="text/css" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link type="text/css" href="{{ asset('/bootstrap/css/bootstrap-responsive.min.css') }}" rel="stylesheet">
   <link type="text/css" href="{{ asset('/css/theme.css') }}" rel="stylesheet">
   <link type="text/css" href="{{ asset('/images/icons/css/font-awesome.css') }}" rel="stylesheet">
   <link type="text/css" href="{{ asset('/css/custom.css') }}" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+
+  @if (View::hasSection('beforebody_js'))
+    @yield('beforebody_js')
+  @endif
 </head>
 
 <body>

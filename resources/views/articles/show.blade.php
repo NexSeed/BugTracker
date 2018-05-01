@@ -1,13 +1,10 @@
 @extends('layout')
 
-@section('title', "Detail/".$article->title)
-
-
 @section('content')
 
 @include('errors.form_errors')
 
-  <h3>Detail</h3>
+  <h2 style="color: #248aaf">{{ $article->title }}</h2>
 
 @if (Auth::check())
 	@if (Auth::id() == $article->user_id || App\User::findOrfail(Auth::id())->user_type == 1)
@@ -15,7 +12,7 @@
 	  	{!! link_to(action('ArticlesController@edit', ['id' => $article->id]), 'Edit', ['class' => 'btn']) !!}
 			<input name="_method" type="hidden" value="DELETE">
 			{!! csrf_field() !!}
-			<input class="btn" type="submit" value="Delete" onclick="return confirm('本当に削除しますか？');">
+			<input class="btn" type="submit" value="Delete" onclick="return confirm('Are you sure you want to DELETE this report?');">
 		</form>
 	@endif
 @endif

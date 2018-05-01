@@ -68,7 +68,7 @@
 								@else
 									{!! Form::radio('urgency', "S") !!}
 								@endif
-                      S:超緊急
+                      S: Right now
               </label>
               <label class="radio inline">
 								@if(Input::old('urgency') == 'A')
@@ -76,7 +76,7 @@
 								@else
 									{!! Form::radio('urgency', "A") !!}
 								@endif
-                      A:１日以内
+                      A: Within 1 day
               </label>
               <label class="radio inline">
 								@if(Input::old('urgency') == 'B')
@@ -84,7 +84,7 @@
 								@else
 									{!! Form::radio('urgency', "B") !!}
 								@endif
-                      B:３日以内
+                      B: Within 3 days
               </label>
               <label class="radio inline">
 								@if(Input::old('urgency') == 'C')
@@ -92,7 +92,7 @@
 								@else
 									{!! Form::radio('urgency', "C") !!}
 								@endif
-                      C:１週間以内
+                      C: Within 1 week
               </label>
               <label class="radio inline">
 								@if(Input::old('urgency') == 'D')
@@ -100,13 +100,13 @@
 								@else
 									{!! Form::radio('urgency', "D") !!}
 								@endif
-                      D:可能なら
+                      D: If Possible
               </label>
             </div>
           </div>
           <div class="control-group">
 						<div class="controls">
-              <span class="span1 control-label">Type  *</span>
+              {{-- <span class="span1 control-label">Detail  *</span> --}}
 					    {!! Form::textarea('body', old('body'), ['class' => 'span8','rows' => '20', 'placeholder' => 'Detail *']) !!}
           	</div>
     			</div>
@@ -118,7 +118,7 @@
                 <div class="image_preview"><img class="js_form_image_preview1" src="@if (isset($path)) {{ asset($path) }} @endif"></div>   {{-- プレビュー画面 --}}
                 <div class="edit_btn">
                   <div class="edit_btn_upload">
-                    <span id='js_before_image1' class="btn-primary"><i class="fa fa-upload">&nbsp;</i>ファイルを選択</span>
+                    <span id='js_before_image1' class="btn-primary"><i class="fa fa-upload">&nbsp;</i>Select image</span>
                     @if (isset($page) && $page == 'edit')
                       {!! Form::file('image1', ['id' => 'js_image1' ,'class' => 'image_button js_btn_file js_edit', 'data-file-btn' => '1' ,'accept' => 'image/*' ]) !!}
                     @else
@@ -131,7 +131,7 @@
                   @else
                   <div onclick="" class="edit_btn_delete btn-danger js_btn_delete" data-delete-btn="1">
                   @endif
-                      <span><i class="far fa-trash-alt">&nbsp;</i>この画像を削除</span>
+                      <span><i class="far fa-trash-alt">&nbsp;</i>Delete image</span>
                   </div>
                   <!-- /.edit_btn_delete -->
                 </div>
@@ -145,7 +145,7 @@
                 <div class="image_preview"><img class="js_form_image_preview2" src="@if (isset($path)) {{ asset($path) }} @endif"></div>   {{-- プレビュー画面 --}}
                 <div class="edit_btn">
                   <div class="edit_btn_upload">
-                    <span id='js_before_image2' class="btn-primary"><i class="fa fa-upload">&nbsp;</i>ファイルを選択</span>
+                    <span id='js_before_image2' class="btn-primary"><i class="fa fa-upload">&nbsp;</i>Select image</span>
                     @if (isset($page) && $page == 'edit')
                       {!! Form::file('image2', ['id' => 'js_image2' ,'class' => 'image_button js_btn_file js_edit', 'data-file-btn' => '2' ,'accept' => 'image/*' ]) !!}
                     @else
@@ -158,7 +158,7 @@
                   @else
                   <div onclick="" class="edit_btn_delete btn-danger js_btn_delete" data-delete-btn="2">
                   @endif
-                      <span><i class="far fa-trash-alt">&nbsp;</i>この画像を削除</span>
+                      <span><i class="far fa-trash-alt">&nbsp;</i>Delete image</span>
                   </div>
                   <!-- /.edit_btn_delete -->
                 </div>
@@ -172,7 +172,7 @@
                 <div class="image_preview"><img class="js_form_image_preview3" src="@if (isset($path)) {{ asset($path) }} @endif"></div>   {{-- プレビュー画面 --}}
                 <div class="edit_btn">
                   <div class="edit_btn_upload">
-                    <span id='js_before_image3' class="btn-primary"><i class="fa fa-upload">&nbsp;</i>ファイルを選択</span>
+                    <span id='js_before_image3' class="btn-primary"><i class="fa fa-upload">&nbsp;</i>Select image</span>
                     @if (isset($page) && $page == 'edit')
                       {!! Form::file('image3', ['id' => 'js_image3' ,'class' => 'image_button js_btn_file js_edit', 'data-file-btn' => '3' ,'accept' => 'image/*' ]) !!}
                     @else
@@ -186,17 +186,17 @@
                   @else
                   <div onclick="" class="edit_btn_delete btn-danger js_btn_delete" data-delete-btn="3">
                   @endif
-                      <span><i class="far fa-trash-alt">&nbsp;</i>この画像を削除</span>
+                      <span><i class="far fa-trash-alt">&nbsp;</i>Delete image</span>
                   </div>
                   <!-- /.edit_btn_delete -->
                 </div>
               </div>
           </div>
+          <br>
 			  	<div class="control-group">
-
             <label class="span1 control-label">Summary *</label>
 						<div class="controls">
-					    {!! Form::text('title', old('title'), ['class' => 'span4','placeholder' => '概要を書いてください']) !!}
+					    {!! Form::text('title', old('title'), ['class' => 'span4','placeholder' => 'Summary *']) !!}
   					</div>
         	</div>
           <div class="control-group">

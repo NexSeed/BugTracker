@@ -1,6 +1,8 @@
 @extends('layout')
 
-@section('title',"TimeLine")
+@section('beforebody_js')
+	@include('articles.tab_js')
+@endsection <!--  beforebody_js -->
 
 @section('content')
 
@@ -123,23 +125,28 @@
 				dataType: 'json'
 			})
 			.done((data, textStatus, jqXHR) => {
-			    if ($isLike == true) {
+						var $elem = $('[data-like-num="' + $currentNum + '"]');
+						console.log($elem.text(),"追加");
 
-		    		$('#js-button-like').attr('id', 'js-button-unlike').html('<i class="icon-ok shaded"></i>' + 'Me too取り消し ' + data['likes_count']);
-		    		console.log("unlikeにする");
+
+			    if ($isLike == true) {
+			    	$elem.attr('id', 'js-button-unlike').html('<i class="icon-ok shaded"></i>' + 'Me too Cancel ' + data['likes_count']);
+
 		    	}
 		    	else {
-		    		$('#js-button-unlike').attr('id', 'js-button-like').html('<i class="icon-ok shaded"></i>' + 'Me too ' + data['likes_count']);
-		    		console.log("likeにする");
+		    		$elem.attr('id', 'js-button-like').html('<i class="icon-ok shaded"></i>' + 'Me too ' + data['likes_count']);
+
 		    	}
 
 			})
 			.fail((jqXHR, textStatus, errorThrown) => {
 			    console.log('fail', jqXHR.status);
-			    alert('できなかった');
+			    alert('Cannot do "Me too"');
 			});
 
 	}
+
+
 
 
 </script>

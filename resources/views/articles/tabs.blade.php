@@ -8,7 +8,7 @@
       <a href={{url("articleslist/Status/all/System/HackersStory")}} class="tabhs" >Hacker's Stroy</a>
       <a href={{url("articleslist/Status/all/System/BugnoTra")}} class="tabbt" >BugnoTra</a>
       <a href={{url("articleslist/Status/all/System/all")}} class="tabs-tab" >All</a>
-      <a href={{url("articles")}} class="tabs-tab">Feed</a>
+      <a href={{url("articles")}} class="tab-feed">Feed</a>
     </p>
 
 </div><!-- tabbox -->

@@ -104,9 +104,8 @@ return [
     */
 
     'attributes' => [
-        'title' => 'タイトル',
+        'title' => 'サマリー',
         'body'  => '本文',
-        'published_at' => '公開日',
         
     ],
 
