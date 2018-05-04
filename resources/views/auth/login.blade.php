@@ -1,7 +1,5 @@
 @extends('layout')
 
-@section('title','ログイン')
-
 @section('content')
 
 

@@ -1,6 +1,5 @@
 @extends('layout')
 
-@section('title', 'パスワードリセット')
 
 @section('content')
 
@@ -12,7 +11,7 @@
         <div class="panel-body">
           @if (count($errors) > 0)
             <div class="alert alert-danger">
-              <strong>Whoops!</strong> インプットにエラーがありました
+              <strong>Whoops!</strong> error(s) occurred in input
               <ul>
                 @foreach ($errors->all() as $error)
                   <li>{{ $error }}</li>

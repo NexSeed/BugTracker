@@ -1,7 +1,5 @@
 @extends('layout')
 
-@section('title','新規登録')
-
 @section('content')
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">

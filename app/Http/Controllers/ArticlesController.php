@@ -16,6 +16,7 @@ use Auth;
 use Image;
 use App\StatusList;
 use File;
+use Mail;
 
 class ArticlesController extends Controller
 {
@@ -112,6 +113,7 @@ class ArticlesController extends Controller
         $this->uploadImages($article,$input);
 
         \Session::flash('flash_message', 'Report is added.');
+        $this->send_mail($article);
 
         return redirect('articles');
 
@@ -325,6 +327,33 @@ class ArticlesController extends Controller
     }
 
 
+    function send_mail(Article $article) {
+        $user = Auth::user();
+        // $token = 1;
+        $name = $user->name;
+        $article_body = $article->body;
+        $system = $article->system;
+    /*
+            $this->mailer->send($view, compact('user'), function ($m) use ($user, $token, $callback) {
+                $m->to($user->getEmailForPasswordReset());
+    
+                if (! is_null($callback)) {
+                    call_user_func($callback, $m, $user, $token);
+                }
+            });
+            
+    */
+        Mail::send('emails.mail_notice'
+            , compact('name','article_body','article')
+            , function($message) use($user,$article ) {
+            $message->setTo([
+                $user->email
+                ,'yokada@nexseed.net'
+            ]);
+            // $message->to($user->email,'yoogle8011@gmail.com');
+            $message->subject("【" . $article->system . "】 " . $article->title);
+        });
+    }
 }
 
 
