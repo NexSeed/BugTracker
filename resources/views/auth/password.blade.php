@@ -1,6 +1,5 @@
 @extends('layout')
 
-@section('title',"パスワード再設定")
 @section('content')
 
 <div class="container-fluid">

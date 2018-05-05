@@ -21,7 +21,7 @@
           <ul class="nav pull-left">
 
             <li class="nav-user dropdown">
-                @if (Auth::guest())
+              @if (Auth::guest())
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login/Register
                   <span class="caret"></span>
                 </a>

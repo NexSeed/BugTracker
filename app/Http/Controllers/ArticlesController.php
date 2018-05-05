@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Article;
+use App\User;
 use AppArticle;
 use App\Http\Requests\ArticleRequest;
 use Carbon\Carbon;
@@ -16,6 +17,8 @@ use Auth;
 use Image;
 use App\StatusList;
 use File;
+use Mail;
+
 
 class ArticlesController extends Controller
 {
@@ -112,6 +115,7 @@ class ArticlesController extends Controller
         $this->uploadImages($article,$input);
 
         \Session::flash('flash_message', 'Report is added.');
+        $this->send_mail($article);
 
         return redirect('articles');
 
@@ -325,6 +329,29 @@ class ArticlesController extends Controller
     }
 
 
+    // 投稿追加時に、投稿者本人と管理者にメールを送る
+    function send_mail(Article $article) {
+        $user = Auth::user();
+        $name = $user->name;
+
+
+        $users = User::all();
+        $destinations = array($user->email);
+        foreach ($users as $admin) {  //管理者権限のメールを追加
+            if($admin->user_type == 1) {
+                // dd($user);
+                $destinations[] = $admin->email;
+            }
+        }
+        // dd($destinations);
+
+        Mail::send('emails.article_notice'
+            , compact('name','article')
+            , function($message) use($user,$article,$destinations ) {
+            $message->setTo($destinations);
+            $message->subject("【" . $article->system . "】 " . $article->title);
+        });
+    }
 }
 
 
