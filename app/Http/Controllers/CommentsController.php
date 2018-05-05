@@ -12,6 +12,7 @@ use Auth;
 use App\Http\Requests\CommentRequest;
 use App\Comment;
 use App\Article;
+use App\User;
 
 use Image;
 
@@ -61,6 +62,7 @@ class CommentsController extends Controller
         $this->uploadImages($comment,$input);
 
 
+        $this->send_mail($comment);
 
          return redirect()->back();
     }
@@ -159,4 +161,30 @@ class CommentsController extends Controller
 	
 		return  "こっちでもメッセージを $name  $user->email に、送ったと思うよね";	    
     }
+
+    // コメント追加時に、投稿者本人と管理者にメールを送る
+    function send_mail(Comment $comment) {
+        $user = Auth::user();
+        $name = $user->name;
+        $article = $comment->article;
+
+        // dd($article->user->email,$comment);
+        $users = User::all();
+        $destinations = array($user->email,$article->user->email);
+        foreach ($users as $admin) {  //管理者権限のメールを追加
+            if($admin->user_type == 1) {
+                // dd($user);
+                $destinations[] = $admin->email;
+            }
+        }
+        // dd($destinations);
+
+        Mail::send('emails.comment_notice'
+            , compact('name','article','comment')
+            , function($message) use($user,$article,$destinations ) {
+            $message->setTo($destinations);
+            $message->subject("【" . $article->system . "】 " . $article->title);
+        });
+    }
+
 }

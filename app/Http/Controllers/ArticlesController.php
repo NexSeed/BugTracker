@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Article;
+use App\User;
 use AppArticle;
 use App\Http\Requests\ArticleRequest;
 use Carbon\Carbon;
@@ -17,6 +18,7 @@ use Image;
 use App\StatusList;
 use File;
 use Mail;
+
 
 class ArticlesController extends Controller
 {
@@ -327,30 +329,26 @@ class ArticlesController extends Controller
     }
 
 
+    // 投稿追加時に、投稿者本人と管理者にメールを送る
     function send_mail(Article $article) {
         $user = Auth::user();
-        // $token = 1;
         $name = $user->name;
-        $article_body = $article->body;
-        $system = $article->system;
-    /*
-            $this->mailer->send($view, compact('user'), function ($m) use ($user, $token, $callback) {
-                $m->to($user->getEmailForPasswordReset());
-    
-                if (! is_null($callback)) {
-                    call_user_func($callback, $m, $user, $token);
-                }
-            });
-            
-    */
-        Mail::send('emails.mail_notice'
-            , compact('name','article_body','article')
-            , function($message) use($user,$article ) {
-            $message->setTo([
-                $user->email
-                ,'yokada@nexseed.net'
-            ]);
-            // $message->to($user->email,'yoogle8011@gmail.com');
+
+
+        $users = User::all();
+        $destinations = array($user->email);
+        foreach ($users as $admin) {  //管理者権限のメールを追加
+            if($admin->user_type == 1) {
+                // dd($user);
+                $destinations[] = $admin->email;
+            }
+        }
+        // dd($destinations);
+
+        Mail::send('emails.article_notice'
+            , compact('name','article')
+            , function($message) use($user,$article,$destinations ) {
+            $message->setTo($destinations);
             $message->subject("【" . $article->system . "】 " . $article->title);
         });
     }
