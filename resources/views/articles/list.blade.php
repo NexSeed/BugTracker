@@ -35,7 +35,7 @@
                         <th>
                             Type
                         </th>
-                        <th>
+                        <th class="hidden-phone hidden-tablet">
                             Author
                         </th>
                         <th>
@@ -48,7 +48,7 @@
                 </thead>
                 <tbody>
                     @foreach($articles as $article)
-                    <tr class="odd gradeX">
+                        <tr class="odd gradeX" onclick="location.href='{{ url('articles', $article->id) }}'">
                         <td>
                             {{ $article->system }}
                         </td>
@@ -70,7 +70,6 @@
                         <td class="align-right">
                             {{ $article->created_at }}
                         </td>
-
                     </tr>
                     @endforeach
 
@@ -83,6 +82,6 @@
 @endsection <!--  content -->
 
 @section('additionaljs')
-
+{{-- trタグにJSあり --}}
 
 @endsection <!--  additionaljs -->

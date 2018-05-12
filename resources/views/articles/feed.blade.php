@@ -126,7 +126,7 @@
 			})
 			.done((data, textStatus, jqXHR) => {
 						var $elem = $('[data-like-num="' + $currentNum + '"]');
-						console.log($elem.text(),"追加");
+						console.log($elem.text());
 
 
 			    if ($isLike == true) {

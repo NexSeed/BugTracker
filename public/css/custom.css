@@ -288,6 +288,29 @@ div#tab3 {
     /*border-top: 1px solid #e5e5e5;*/
     margin: -10px -5px -15px;
 }
+
+.ul_in_article {
+	display: flex;
+	align-items: center;
+	list-style: none;
+	margin: 0 0 0px;  /*2つ上下　左右 3つ上　左右　下 4つ上右下左の順番 0はpx省略してOK*/
+	font-size: 11px;
+	padding: 5px 0 15px;
+}
+
+.ul_in_article li + li {
+	/*margin-top: 4px;*/
+	margin-left: 20px;
+}
+
+.li_in_article {
+	display: inline-block;
+	padding: 1px 8px;
+	background: #f0f0f0;
+	margin-right: 2px;
+	border-radius: 2px;
+}
+
 /*
 .edit-article-image {
 	display: flex;
@@ -299,4 +322,9 @@ div#tab3 {
 }
 .module-head {
 	background-color: #fff;
+}
+
+.show_title_btn {
+	display: flex;
+	justify-content: space-between;
 }

@@ -1,0 +1,26 @@
+APP_ENV=local
+APP_DEBUG=true
+APP_KEY=HOstzavkw8Myc4akaNcNj0kFaERydbJY
+
+DB_HOST=127.0.0.1
+DB_DATABASE=bugtracking
+DB_USERNAME=root
+DB_PASSWORD=
+DB_SOCKET=/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock
+
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_DRIVER=sync
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=465
+MAIL_USERNAME=yokada@nexseed.net
+MAIL_PASSWORD=mangoshake007
+MAIL_PRETEND=false
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS=yokada@nexseed.net
+MAIL_FROM_NAME="BugnoTra NexSeed"
+
+
+

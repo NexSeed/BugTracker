@@ -4,29 +4,35 @@
 
 @include('errors.form_errors')
 
-  <h2 style="color: #248aaf">{{ $article->title }}</h2>
 
-@if (Auth::check())
-	@if (Auth::id() == $article->user_id || App\User::findOrfail(Auth::id())->user_type == 1)
-		<form method="POST" action={{url("articles/".$article->id) }} accept-charset="UTF-8">
-	  	{!! link_to(action('ArticlesController@edit', ['id' => $article->id]), 'Edit', ['class' => 'btn']) !!}
-			<input name="_method" type="hidden" value="DELETE">
-			{!! csrf_field() !!}
-			<input class="btn" type="submit" value="Delete" onclick="return confirm('Are you sure you want to DELETE this report?');">
-		</form>
+<div class="module">
+	<div class="module-body">
+
+		<div class="show_title_btn">
+	  <h2 style="color: #248aaf">{{ $article->title }}</h2>
+
+	@if (Auth::check())
+		@if (Auth::id() == $article->user_id || App\User::findOrfail(Auth::id())->user_type == 1)
+			<form method="POST" action={{url("articles/".$article->id) }} accept-charset="UTF-8">
+		  	{!! link_to(action('ArticlesController@edit', ['id' => $article->id]), 'Edit', ['class' => 'btn btn-primary']) !!}
+				<input name="_method" type="hidden" value="DELETE">
+				{!! csrf_field() !!}
+				<input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure you want to DELETE this report?');">
+			</form>
+		@endif
 	@endif
-@endif
-  <hr/>
+		</div>
+	  <hr/>
 
-@include('articles.article')
+	@include('articles.article')
 
-	<div class="media-body">
+		<div class="media-body">
 
-	@include('articles.comments')
+		@include('articles.comments')
 
+		</div>
 	</div>
-
-
+</div>
 
 @endsection
 
