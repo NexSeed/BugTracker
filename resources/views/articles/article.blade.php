@@ -4,38 +4,41 @@
 								{{ $article->user()->first()->name }}
 								<small>{{ $article->created_at }}</small>  status : {{ $article->status() }}
 							</h5>
-					    	<article>
-										System :  {{ $article->system }} <br>
-										Type :  {{ $article->type }} <br>
-								    Urgency :  {{ $article->urgency }} <br>
-		            @if (!(isset($page) && $page == 'show'))
+				    	<article>
+				    			<ul class="ul_in_article">
+										<li><span class="li_in_article">System</span>  {{ $article->system }} </li>
+										<li><span class="li_in_article">Type</span>  {{ $article->type }}  </li>
+								    <li><span class="li_in_article">Urgency</span>  {{ $article->urgency }}  </li>
+							    </ul>
+	            @if (!(isset($page) && $page == 'show'))
 
-								<h4><a href={{ url('articles', $article->id)}}>{{ $article->title }}</a></h4>
-								@else
-									<br>
-									
-								@endif
+							<h4><a href={{ url('articles', $article->id)}}>{{ $article->id }} : {{ 
+								$article->title }}</a></h4>
+							@else
+								<br>
+								
+							@endif
 
-						        <div class="stream-text">
-						          {!! nl2br($article->body) !!}
-						        </div>
-								<div>
-									<div class="article-image">
-										{{-- */$path = $article->getImage1Path()/* --}}
-										@if (isset($path))
-											<img src="{{ asset($path) }}" alt="image1">
-										@endif
-										{{-- */$path = $article->getImage2Path()/* --}}
-										@if (isset($path))
-											<img src="{{ asset($path) }}" alt="image2">
-										@endif
-										{{-- */$path = $article->getImage3Path()/* --}}
-										@if (isset($path))
-											<img src="{{ asset($path) }}" alt="image3">
-										@endif
-									</div>
+					        <div class="stream-text feed_artcile">
+					          {!! nl2br($article->body) !!}
+					        </div>
+							<div>
+								<div class="article-image">
+									{{-- */$path = $article->getImage1Path()/* --}}
+									@if (isset($path))
+										<img src="{{ asset($path) }}" alt="image1">
+									@endif
+									{{-- */$path = $article->getImage2Path()/* --}}
+									@if (isset($path))
+										<img src="{{ asset($path) }}" alt="image2">
+									@endif
+									{{-- */$path = $article->getImage3Path()/* --}}
+									@if (isset($path))
+										<img src="{{ asset($path) }}" alt="image3">
+									@endif
 								</div>
-					    	</article>
+							</div>
+				    	</article>
 						</div>
 						<div class="stream-options">
 							@if (Auth::check())

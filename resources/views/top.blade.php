@@ -7,14 +7,14 @@
 
     <div class="btn-controls">
         <div class="btn-box-row row-fluid">
-            <a href={{url("articleslist/Status/all/System/ERP")}} class="btn-box big span4 top-erp"><i class=" icon-book"></i><b class="top_btn">ERP<label class="top-count">{{ $doneERP }}</label></b>
+            <a href={{url("articleslist/Status/UnDone/System/ERP")}} class="btn-box big span4 top-erp"><i class=" icon-book"></i><b class="top_btn">ERP<label class="top-count">{{ $doneERP }}</label></b>
 
                 <p class="text-muted">
                 </p>
-            </a><a href={{url("articleslist/Status/all/System/HackersStory")}} class="btn-box big span4 top-hs"><i class="icon-user"></i><b class="top_btn">Hacker's Story<label class="top-count">{{ $doneHS }}</label></b>
+            </a><a href={{url("articleslist/Status/UnDone/System/HackersStory")}} class="btn-box big span4 top-hs"><i class="icon-user"></i><b class="top_btn">Hacker's Story<label class="top-count">{{ $doneHS }}</label></b>
                 <p class="text-muted">
                     </p>
-            </a><a href={{url("articleslist/Status/all/System/BugnoTra")}} class="btn-box big span4 top-hs"><i class="icon-signal"></i><b class="top_btn">バグの虎<label class="top-count">{{ $doneBT }}</label></b>
+            </a><a href={{url("articleslist/Status/UnDone/System/BugnoTra")}} class="btn-box big span4 top-hs"><i class="icon-signal"></i><b class="top_btn">バグの虎<label class="top-count">{{ $doneBT }}</label></b>
                 <p class="text-muted">
                     </p>
             </a>
