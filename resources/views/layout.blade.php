@@ -67,11 +67,11 @@
 
   <script src="{{ asset('/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
 
+  <script src="{{ asset('scripts/custom.js')}}" type="text/javascript"></script>
 
   @if (View::hasSection('additionaljs'))
 	  @yield('additionaljs')
   @endif
-
 
 </body>
 </html>

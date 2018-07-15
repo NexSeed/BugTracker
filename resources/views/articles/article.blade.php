@@ -12,13 +12,14 @@
 							    </ul>
 	            @if (!(isset($page) && $page == 'show'))
 
-							<h4><a href={{ url('articles', $article->id)}}>{{ $article->title }}</a></h4>
+							<h4><a href={{ url('articles', $article->id)}}>{{ $article->id }} : {{ 
+								$article->title }}</a></h4>
 							@else
 								<br>
 								
 							@endif
 
-					        <div class="stream-text">
+					        <div class="stream-text feed_artcile">
 					          {!! nl2br($article->body) !!}
 					        </div>
 							<div>

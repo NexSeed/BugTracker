@@ -67,14 +67,28 @@ class ArticlesController extends Controller
     // }
 
 
-	public function limitByStatusAndSystem($status_list_id=null,$system="all") {
+	public function limitByStatusAndSystem($status=null,$system="all") {
 
-        $articles = $this->getShowArticles();
+        // $articles = $this->getShowArticles();
+
         $this->updateStatusCounts($system);
         $statusCounts = $this->statusCounts;
 
-        if($status_list_id != 'all') {
-    		$articles = $articles->where('status_list_id',  (int)$status_list_id);
+
+        if($status != 'all') {
+            if ($status == 'UnDone') {
+                // UnDoneのときは取り直し
+                $articles = Article::where('status_list_id','<>', 3)->latest('created_at')
+                ->where('deleted' , 0)->get();
+            }
+            else {
+                $articles = $this->getShowArticles();
+        		$articles = $articles->where('status_list_id',  (int)$status);
+            }
+        }
+        else {
+                    $articles = $this->getShowArticles();
+
         }
         if($system != 'all') {
     		$articles = $articles->where('system',  $system);
@@ -250,6 +264,8 @@ class ArticlesController extends Controller
         else {
             $articles = $this->getShowArticles($system);
         }
+        $this->statusCounts['all'] = $articles->count();
+
 
         $status_lists_count = StatusList::all()->count();
 
@@ -257,6 +273,7 @@ class ArticlesController extends Controller
             $tmp = $articles->where('status_list_id',  ($i+1))->count();
             $this->statusCounts[$i] = $tmp;
         }
+
 
 
     }

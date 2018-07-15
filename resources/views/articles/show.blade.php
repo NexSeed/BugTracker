@@ -9,7 +9,7 @@
 	<div class="module-body">
 
 		<div class="show_title_btn">
-	  <h2 style="color: #248aaf">{{ $article->title }}</h2>
+	  <h2 style="color: #248aaf">{{ $article->id }} : {{ $article->title }}</h2>
 
 	@if (Auth::check())
 		@if (Auth::id() == $article->user_id || App\User::findOrfail(Auth::id())->user_type == 1)
